@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tahmid-tanzim/learning-node.js/issues"
   },
-  "homepage": "https://github.com/tahmid-tanzim/learning-node.js"
+  "homepage": "https://github.com/tahmid-tanzim/learning-node.js",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
