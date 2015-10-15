@@ -1,31 +1,22 @@
-
 /*
  * GET home page.
  */
-var flight = require('../flight');
+var flights = require('../data');
+var flightModule = require('../flight');
 
-var flight1 = flight.create({
-    number: 1,
-    origin: 'LAX',
-    destination: 'DCA',
-    departs: '9AM',
-    arrives: '4PM'
-});
+for (var number in flights) {
+    flights[number] = flightModule.create(flights[number]);
+}
 
-var flight2 = flight.create({
-    number: 2,
-    origin: 'LAX',
-    destination: 'PDX',
-    departs: '10AM',
-    arrives: '12PM'
-});
+exports.flight = function (req, res) {
+    var number = req.param('number');
 
-exports.flight1 = function(req, res){
-    //res.render('index', { title: 'Express' });
-    res.json(flight1.getInformation());
-};
-
-exports.flight2 = function(req, res){
-    //res.render('index', { title: 'Express' });
-    res.json(flight2.getInformation());
+    if (typeof flights[number] === 'undefined') {
+        res.status(404).json({
+            status: 'error',
+            message: 'Invalid flight number: ' + number
+        });
+    } else {
+        res.json(flights[number].getInformation());
+    }
 };
