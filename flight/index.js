@@ -1,5 +1,5 @@
-module.exports = function (info) {
-    var values = {
+var Flight = function () {
+    this.data = {
         number: null,
         origin: null,
         destination: null,
@@ -9,47 +9,29 @@ module.exports = function (info) {
         actualArrive: null
     };
 
-    for (var prop in values) {
-        if(values[prop] !== 'undefined') {
-            values[prop] = info[prop];
-        }
-    }
-
-    var functions = {
-        triggerDepart: function () {
-            values.actualDepart = Date.now();
-        },
-        triggerArrive: function () {
-            values.actualArrive = Date.now();
-        },
-        getInformation: function () {
-            return values;
+    this.fill = function (info) {
+        for (var prop in this.data) {
+            if (this.data[prop] !== 'undefined') {
+                this.data[prop] = info[prop];
+            }
         }
     };
 
-    return functions;
-};
+    this.triggerDepart = function () {
+        this.data.actualDepart = Date.now();
+    };
 
-/*
-var number, origin, destination;
+    this.triggerArrive = function () {
+        this.data.actualArrive = Date.now();
+    };
 
-exports.setNumber = function (n) {
-    number = n;
-};
-
-exports.setOrigin = function (o) {
-    origin = o;
-};
-
-exports.setDestination = function (d) {
-    destination = d;
-};
-
-exports.getInfo = function () {
-    return {
-        number: number,
-        origin: origin,
-        destination: destination
+    this.getInformation = function () {
+        return this.data;
     };
 };
-*/
+
+module.exports = function (info) {
+    var instance = new Flight();
+    instance.fill(info);
+    return instance;
+};
