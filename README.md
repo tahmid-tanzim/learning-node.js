@@ -36,7 +36,7 @@ node index.js
 ```
 ### 5. Maintaining projects using NPM command
 ```
-sudo npm install -g express
+sudo npm install -g express@3.4.x
 express <project-name>
 cd <project-name>
 ```
