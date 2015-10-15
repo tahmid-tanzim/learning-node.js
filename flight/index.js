@@ -1,3 +1,8 @@
+var flightTotal = {
+    count: 0,
+    destinations: []
+};
+
 var Flight = function () {
     this.data = {
         number: null,
@@ -30,8 +35,16 @@ var Flight = function () {
     };
 };
 
-module.exports = function (info) {
+module.exports.create = function (info) {
     var instance = new Flight();
     instance.fill(info);
+    flightTotal.count++;
+    if (info.destination !== undefined && info.destination !== null) {
+        flightTotal.destinations.push(info.destination);
+    }
     return instance;
+};
+
+module.exports.getFlightsInfo = function () {
+    return flightTotal;
 };

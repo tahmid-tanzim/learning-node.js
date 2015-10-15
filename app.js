@@ -6,10 +6,12 @@ var pdxlax = {
     destination: 'LAX'
 };
 
-var pl = flight(pdxlax);
+var pl = flight.create(pdxlax);
 pl.triggerDepart();
 
 console.log(pl.getInformation());
+console.log(flight.getFlightsInfo());
+console.log('/*****************************************************/');
 
 var ausdca = {
     number: 382,
@@ -17,20 +19,21 @@ var ausdca = {
     destination: 'DCA'
 };
 
-var ad = flight(ausdca);
+var ad = flight.create(ausdca);
+
 console.log(ad.getInformation());
-
 console.log(pl.getInformation());
+console.log(flight.getFlightsInfo());
+console.log('/*****************************************************/');
 
-/*
-var flight = require('./flight');
+var bansng = {
+    number: 469,
+    origin: 'BAN',
+    destination: 'SNG'
+};
 
-flight.setOrigin('LAX');
-flight.setDestination('DCA');
-flight.setNumber(462);
-
-console.log(flight.getInfo());
-
-var anotherFlight = require('./flight');
-console.log(anotherFlight.getInfo());
-*/
+var bs = flight.create(bansng);
+console.log(bs.getInformation());
+console.log(ad.getInformation());
+console.log(pl.getInformation());
+console.log(flight.getFlightsInfo());
