@@ -44,3 +44,11 @@ exports.list = function (req, res) {
         flights: flights
     });
 };
+
+exports.listjson = function (req, res) {
+    var flightData = [];
+    for (var number in flights) {
+        flightData.push(flights[number].getInformation());
+    }
+    res.json(flightData);
+};
