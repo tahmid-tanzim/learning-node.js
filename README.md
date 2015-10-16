@@ -31,7 +31,7 @@ npm init
 ```
 ### 4. Finding an NPM [express](https://www.npmjs.com/package/express)
 ```
-npm install --save express
+sudo npm install --save express
 node index.js
 ```
 ### 5. Maintaining projects using NPM command
@@ -44,3 +44,13 @@ cd <project-name>
 * Run the app ~> `node app.js`
 * Remove unused modules ~> `npm prune`
 * Update dependencies ~> `npm update`
+### 6. Writing unit tests with [Mocha](https://mochajs.org/), [Should](https://github.com/tj/should.js) and [SuperTest](https://github.com/visionmedia/supertest)
+```
+sudo npm install --save-dev mocha
+sudo npm install --save-dev should
+sudo npm install --save-dev supertest
+```
+##### 6.1. Installing Mocha as Global module
+```
+sudo npm install -g mocha
+```
