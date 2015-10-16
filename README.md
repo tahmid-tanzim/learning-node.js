@@ -55,3 +55,7 @@ sudo npm install --save-dev supertest
 ```
 sudo npm install -g mocha
 ```
+### 7. Install [Mongoose](http://mongoosejs.com/) for connecting to [MongoDB](https://www.mongodb.org/)
+```
+sudo npm install --save mongoose
+```
