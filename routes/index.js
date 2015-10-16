@@ -33,7 +33,7 @@ module.exports = function (flights) {
             } else {
                 flights[number].triggerArrive();
                 res.json({
-                    status: 'done',
+                    status: 'success',
                     info: flights[number].getInformation()
                 });
             }
