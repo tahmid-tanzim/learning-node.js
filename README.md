@@ -44,6 +44,7 @@ cd <project-name>
 * Run the app ~> `node app.js`
 * Remove unused modules ~> `npm prune`
 * Update dependencies ~> `npm update`
+
 ### 6. Writing unit tests with [Mocha](https://mochajs.org/), [Should](https://github.com/tj/should.js) and [SuperTest](https://github.com/visionmedia/supertest)
 ```
 sudo npm install --save-dev mocha
