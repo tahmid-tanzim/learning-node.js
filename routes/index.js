@@ -2,6 +2,8 @@
  * GET home page.
  */
 
+var FlightSchema = require('../schemas/flight');
+
 module.exports = function (flights) {
     var flightModule = require('../flight');
 
@@ -15,7 +17,7 @@ module.exports = function (flights) {
 
             if (typeof flights[number] === 'undefined') {
                 res.status(404).json({
-                    status: 'error',
+                    status: 'Error',
                     message: 'Invalid flight number: ' + number
                 });
             } else {
@@ -27,14 +29,23 @@ module.exports = function (flights) {
 
             if (typeof flights[number] === 'undefined') {
                 res.status(404).json({
-                    status: 'error',
+                    status: 'Error',
                     message: 'Invalid flight number: ' + number
                 });
             } else {
                 flights[number].triggerArrive();
-                res.json({
-                    status: 'success',
-                    info: flights[number].getInformation()
+
+                var record = new FlightSchema(flights[number].getInformation());
+                record.save(function (err) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).json({status: 'Database failure'});
+                    } else {
+                        res.json({
+                            status: 'Successfully arrived',
+                            info: flights[number].getInformation()
+                        });
+                    }
                 });
             }
         },
