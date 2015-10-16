@@ -37,3 +37,10 @@ exports.arrived = function (req, res) {
         });
     }
 };
+
+exports.list = function (req, res) {
+    res.render('list', {
+        title: 'All Flights',
+        flights: flights
+    });
+};
