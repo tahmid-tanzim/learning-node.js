@@ -61,6 +61,22 @@ module.exports = function (flights) {
                 flightData.push(flights[number].getInformation());
             }
             res.json(flightData);
+        },
+        arrivals: function (req, res) {
+            FlightSchema.find()
+                .setOptions({sort: 'actualArrive'})
+                .exec(function (err, data) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).json({status: 'Database failure'});
+                    } else {
+                        res.render('arrivals', {
+                            title: 'Arrivals',
+                            arrivals: data
+                        });
+                    }
+                });
+
         }
     };
     return functions;
