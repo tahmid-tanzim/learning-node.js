@@ -16,11 +16,13 @@ module.exports = function (flights) {
             var number = req.param('number');
 
             if (typeof flights[number] === 'undefined') {
+                req.session.lastNumber = null;
                 res.status(404).json({
                     status: 'Error',
                     message: 'Invalid flight number: ' + number
                 });
             } else {
+                req.session.lastNumber = number;
                 res.json(flights[number].getInformation());
             }
         },
@@ -72,7 +74,8 @@ module.exports = function (flights) {
                     } else {
                         res.render('arrivals', {
                             title: 'Arrivals',
-                            arrivals: data
+                            arrivals: data,
+                            lastNumber: req.session.lastNumber
                         });
                     }
                 });

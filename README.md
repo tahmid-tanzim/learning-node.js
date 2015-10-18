@@ -59,3 +59,7 @@ sudo npm install -g mocha
 ```
 sudo npm install --save mongoose
 ```
+### 8. Install [connect-mongo](https://www.npmjs.com/package/connect-mongo) - MongoDB session store for Express and Connect
+```
+sudo npm install --save connect-mongo
+```
