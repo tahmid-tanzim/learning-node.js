@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1= title
+    form(method='post')
+        input(name='username', class='input-block-level', placeholder='Username')
+        input(name='password', class='input-block-level', placeholder='Password', type='password')
+        input(value='Log in', class='btn btn-primary', type='submit')
