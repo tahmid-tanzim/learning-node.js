@@ -72,3 +72,7 @@ sudo npm install --save passport
 ```
 sudo npm install --save passport-local
 ```
+### 10. Install [minimist](https://www.npmjs.com/package/minimist) for parse argument options.
+```
+sudo npm install --save minimist
+```

@@ -9,6 +9,7 @@
     "connect-mongo": "^0.8.2",
     "express": "3.4.8",
     "jade": "*",
+    "minimist": "^1.2.0",
     "mongoose": "^4.1.11",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0"
