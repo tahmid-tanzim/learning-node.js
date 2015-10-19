@@ -63,3 +63,12 @@ sudo npm install --save mongoose
 ```
 sudo npm install --save connect-mongo
 ```
+### 9. Logging in to Express applications using Passport 
+##### 9.1. Install [passport](https://www.npmjs.com/package/passport) - Simple, unobtrusive authentication for Node.js
+```
+sudo npm install --save passport
+```
+##### 9.2. Install [passport-local](https://www.npmjs.com/package/passport-local) - Local username and password authentication strategy for Passport
+```
+sudo npm install --save passport-local
+```
