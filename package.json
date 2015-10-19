@@ -5,12 +5,13 @@
   "scripts": {
     "start": "node server.js"
   },
+  "bin": "./server.js",
   "dependencies": {
-    "connect-mongo": "^0.8.2",
     "express": "3.4.8",
     "jade": "*",
     "minimist": "^1.2.0",
     "mongoose": "^4.1.11",
+    "connect-mongo": "^0.8.2",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0"
   },

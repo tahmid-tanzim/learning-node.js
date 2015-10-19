@@ -76,3 +76,8 @@ sudo npm install --save passport-local
 ```
 sudo npm install --save minimist
 ```
+### 11. Create link for command-line tools
+Add `#!/usr/bin/env node` in the beginning of `./server.js`. Then create symbolic link
+```
+sudo npm link
+```

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var http = require('http');
 var flights = require('./data');
 var db = require('./db');
