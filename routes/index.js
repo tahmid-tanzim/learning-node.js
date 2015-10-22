@@ -3,6 +3,22 @@
  */
 
 var FlightSchema = require('../schemas/flight');
+var Emitter = require('events').EventEmitter;
+
+var flightEmitter = new Emitter();
+
+flightEmitter.on('arrival', function (flight) {
+    var record = new FlightSchema(flight.getInformation());
+    record.save(function (err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+});
+
+flightEmitter.on('arrival', function (flight) {
+    console.log("Flight arrived: " + flight.data.number);
+});
 
 module.exports = function (flights) {
     var flightModule = require('../flight');
@@ -37,18 +53,27 @@ module.exports = function (flights) {
             } else {
                 flights[number].triggerArrive();
 
-                var record = new FlightSchema(flights[number].getInformation());
-                record.save(function (err) {
-                    if (err) {
-                        console.log(err);
-                        res.status(500).json({status: 'Database failure'});
-                    } else {
-                        res.json({
-                            status: 'Successfully arrived',
-                            info: flights[number].getInformation()
-                        });
-                    }
+                flightEmitter.emit('arrival', flights[number]);
+                res.json({
+                    status: 'Successfully arrived',
+                    info: flights[number].getInformation()
                 });
+
+                /**
+                 * Resolved record save by emitting events.
+                 * */
+                //var record = new FlightSchema(flights[number].getInformation());
+                //record.save(function (err) {
+                //    if (err) {
+                //        console.log(err);
+                //        res.status(500).json({status: 'Database failure'});
+                //    } else {
+                //        res.json({
+                //            status: 'Successfully arrived',
+                //            info: flights[number].getInformation()
+                //        });
+                //    }
+                //});
             }
         },
         list: function (req, res) {
