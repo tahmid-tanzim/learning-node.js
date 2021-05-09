@@ -7,17 +7,17 @@
   },
   "bin": "./server.js",
   "dependencies": {
-    "express": "3.4.8",
+    "connect-mongo": "^4.4.1",
+    "express": "^4.17.1",
     "jade": "*",
     "minimist": "^1.2.0",
-    "mongoose": "^4.1.11",
-    "connect-mongo": "^0.8.2",
+    "mongoose": "^5.12.7",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "mocha": "^2.3.3",
+    "mocha": "^8.4.0",
     "should": "^7.1.0",
-    "supertest": "^1.1.0"
+    "supertest": "^6.1.3"
   }
 }
